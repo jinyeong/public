@@ -4,8 +4,7 @@ function gup(name) {
     var regex = new RegExp(regexS);
     var results = regex.exec(window.location.href);
     if(results == null)
-        return "NO_PARAMETER";
-        //return "";
+        return "";
     else return unescape(results[1]);
 }
 
@@ -45,9 +44,9 @@ $(document).ready(function(){
     var q = "A real question will be displayed here, after you accept the HIT.<br>e.g. &emsp; Q. Which player has a back number of 31? &emsp; A. Shawn Respert";
     var t = "This table is just an example. A real table will be shown after you accept the HIT.";
     var taskId = -1;
+    var workerId = gup("workerId");
     
-    if (gup("assignmentId") != "ASSIGNMENT_ID_NOT_AVAILABLE") {
-        workerId = gup("workerId");
+    if (gup("assignmentId") != "ASSIGNMENT_ID_NOT_AVAILABLE" && workerId != "") {
         $.ajax({
             url: "https://2409bb0d.ngrok.io/get_task/"+workerId,
             type: "GET",
