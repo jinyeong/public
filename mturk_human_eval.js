@@ -1,4 +1,3 @@
-<script>
 function gup(name) {
     name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
     var regexS = "[\\?&]"+name+"=([^&#]*)";
@@ -73,4 +72,3 @@ $(document).ready(function(){
     }
 
 });
-</script>
